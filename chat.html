@@ -31,24 +31,20 @@
   </style>
 </head>
 <body>
-  <header>
-    <nav class="navbar">
-      <div class="dropdown">
-        <img src="images/Content.png" alt="Tabs Icon" class="dropdown-toggle" />
-        <div class="dropdown-content">
-          <a href="Forms">Forms</a>
-          <a href="Preparing">Preparing</a>
-          <a href="index.html">Info</a>
-          <a href="Support">Support</a>
-          <a href="chat.html">Chat</a> 
-        </div>
-      </div>
+  <!-- Banner -->
+  <header class="banner">
+    <h1>GovBot</h1>
     <a href="#" id="profile-btn">
-        <img src="images/Profile.png" alt="Profile" />
+      <img src="images/cat_profile.jpg" alt="Profile" class="profile-icon" />
     </a>
-    </nav>
-    <h1>FormAI Chat</h1>
   </header>
+  <nav class="navbar">
+    <a href="index.html" class="nav-item">Home</a>
+    <a href="Forms" class="nav-item">Forms</a>
+    <a href="Preparing" class="nav-item">Preparing</a>
+    <a href="Support" class="nav-item">Support</a>
+    <a href="chat.html" class="nav-item active">Chat</a>
+  </nav>
   <main>
   <div id="chat-container">
     <div id="chat-history"></div>
@@ -119,7 +115,7 @@
 
         const data = await res.json();
 
-        // Remove thinking (broken rn)
+        // Remove "thinking" (broken)"
         chatHistory.removeChild(chatHistory.lastChild);
 
         addMessage("bot", data.result || "No response from GPT.");
