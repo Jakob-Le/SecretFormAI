@@ -1,0 +1,43 @@
+h1, h2{
+    text-align: center;
+}
+
+.navbar{
+    left: 1rem;
+    right: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    background-color: white;
+}   
+
+.navbar img{
+    width: 40px;
+    height: 40px;
+}
+
+.dropdown{
+    position: relative;
+}
+
+.dropdown-content{
+    position: absolute;
+    top: 30px;
+    left: 0;
+    background-color: white;
+    display: none;
+    flex-direction: column;
+    padding: 0.5rem;
+    gap: 1rem;
+}
+
+.dropdown-content a{
+    text-decoration: 0;
+    color: black;
+    white-space: nowrap;
+}
+
+.dropdown-toggle{
+    cursor: pointer;
+}
