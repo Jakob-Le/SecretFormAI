@@ -51,55 +51,85 @@
   </header>
 
   <main>
-    <div id="chat-box">
+  <div id="chat-container">
+    <div id="chat-history"></div>
+
+    <div id="chat-input">
       <textarea id="prompt" placeholder="Ask me anything..."></textarea>
       <button id="submit">Send</button>
-      <div id="response" class="response"></div>
     </div>
-  </main>
+  </div>
+</main>
 
   <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      // Dropdown menu logic
-      const toggle = document.querySelector(".dropdown-toggle");
-      const menu = document.querySelector(".dropdown-content");
-      if (toggle && menu) {
-        toggle.addEventListener("click", function (event) {
-          event.stopPropagation();
-          menu.style.display = menu.style.display === "flex" ? "none" : "flex";
-        });
-        document.addEventListener("click", function (event) {
-          if (!event.target.closest(".dropdown")) {
-            menu.style.display = "none";
-          }
-        });
-      }
-
-      // GPT Chat logic
-      const submit = document.getElementById("submit");
-      const promptBox = document.getElementById("prompt");
-      const responseBox = document.getElementById("response");
-
-      submit.addEventListener("click", async () => {
-        const prompt = promptBox.value.trim();
-        if (!prompt) return;
-
-        responseBox.textContent = "Thinking...";
-
-        try {
-          const res = await fetch("https://gptwrap.onrender.com/api/gpt", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ prompt }),
-          });
-
-          const data = await res.json();
-          responseBox.textContent = data.result || "No response from GPT.";
-        } catch (err) {
-          responseBox.textContent = "Error: " + err.message;
+  document.addEventListener("DOMContentLoaded", function () {
+    // Dropdown menu logic
+    const toggle = document.querySelector(".dropdown-toggle");
+    const menu = document.querySelector(".dropdown-content");
+    if (toggle && menu) {
+      toggle.addEventListener("click", function (event) {
+        event.stopPropagation();
+        menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+      });
+      document.addEventListener("click", function (event) {
+        if (!event.target.closest(".dropdown")) {
+          menu.style.display = "none";
         }
       });
+    }
+
+    // Chat logic
+    const chatHistory = document.getElementById("chat-history");
+    const promptBox = document.getElementById("prompt");
+    const submit = document.getElementById("submit");
+
+    function addMessage(sender, text) {
+      const messageWrapper = document.createElement("div");
+      messageWrapper.className = `message ${sender}`;
+
+      const avatar = document.createElement("img");
+      avatar.src = sender === "user" ? "images/user.png" : "images/bot.png";
+      avatar.alt = sender;
+      avatar.className = "avatar";
+
+      const bubble = document.createElement("div");
+      bubble.className = "bubble";
+      bubble.textContent = text;
+
+      messageWrapper.appendChild(avatar);
+      messageWrapper.appendChild(bubble);
+      chatHistory.appendChild(messageWrapper);
+      chatHistory.scrollTop = chatHistory.scrollHeight;
+    }
+
+    submit.addEventListener("click", async () => {
+      const prompt = promptBox.value.trim();
+      if (!prompt) return;
+
+      addMessage("user", prompt);
+      promptBox.value = "";
+
+      addMessage("bot", "Thinking...");
+
+      try {
+        const res = await fetch("https://gptwrap.onrender.com/api/gpt", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ prompt }),
+        });
+
+        const data = await res.json();
+
+        // Remove the "Thinking..." bubble
+        chatHistory.removeChild(chatHistory.lastChild);
+
+        addMessage("bot", data.result || "No response from GPT.");
+      } catch (err) {
+        chatHistory.removeChild(chatHistory.lastChild);
+        addMessage("bot", "Error: " + err.message);
+      }
     });
-  </script>
+  });
+</script>
 </body>
 </html>
