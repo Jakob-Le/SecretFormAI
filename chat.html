@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chat</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    #chat-box {
+      max-width: 600px;
+      margin: 2rem auto;
+      padding: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      background-color: #f9f9f9;
+    }
+    textarea {
+      width: 100%;
+      height: 80px;
+      margin-bottom: 1rem;
+    }
+    button {
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    .response {
+      margin-top: 1rem;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="dropdown">
+        <img src="images/Content.png" alt="Tabs Icon" class="dropdown-toggle" />
+        <div class="dropdown-content">
+          <a href="Forms">Forms</a>
+          <a href="Preparing">Preparing</a>
+          <a href="Info">Info</a>
+          <a href="Support">Support</a>
+          <a href="chat.html">Chat</a> <!-- 👈 Added link to chat page -->
+        </div>
+      </div>
+      <a href="profile.html">
+        <img src="images/Profile.png" alt="Profile" />
+      </a>
+    </nav>
+    <h1>FormAI Chat</h1>
+  </header>
+
+  <main>
+    <div id="chat-box">
+      <textarea id="prompt" placeholder="Ask me anything..."></textarea>
+      <button id="submit">Send</button>
+      <div id="response" class="response"></div>
+    </div>
+  </main>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // Dropdown menu logic
+      const toggle = document.querySelector(".dropdown-toggle");
+      const menu = document.querySelector(".dropdown-content");
+      if (toggle && menu) {
+        toggle.addEventListener("click", function (event) {
+          event.stopPropagation();
+          menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+        });
+        document.addEventListener("click", function (event) {
+          if (!event.target.closest(".dropdown")) {
+            menu.style.display = "none";
+          }
+        });
+      }
+
+      // GPT Chat logic
+      const submit = document.getElementById("submit");
+      const promptBox = document.getElementById("prompt");
+      const responseBox = document.getElementById("response");
+
+      submit.addEventListener("click", async () => {
+        const prompt = promptBox.value.trim();
+        if (!prompt) return;
+
+        responseBox.textContent = "Thinking...";
+
+        try {
+          const res = await fetch("https://gptwrap.onrender.com/api/gpt", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ prompt }),
+          });
+
+          const data = await res.json();
+          responseBox.textContent = data.result || "No response from GPT.";
+        } catch (err) {
+          responseBox.textContent = "Error: " + err.message;
+        }
+      });
+    });
+  </script>
+</body>
+</html>
