@@ -40,7 +40,7 @@
           <a href="Preparing">Preparing</a>
           <a href="Info">Info</a>
           <a href="Support">Support</a>
-          <a href="chat.html">Chat</a> <!-- 👈 Added link to chat page -->
+          <a href="chat.html">Chat</a> 
         </div>
       </div>
       <a href="profile.html">
@@ -63,7 +63,7 @@
 
   <script>
   document.addEventListener("DOMContentLoaded", function () {
-    // Dropdown menu logic
+    // Dropdown Menu
     const toggle = document.querySelector(".dropdown-toggle");
     const menu = document.querySelector(".dropdown-content");
     if (toggle && menu) {
@@ -78,7 +78,7 @@
       });
     }
 
-    // Chat logic
+    // Chat
     const chatHistory = document.getElementById("chat-history");
     const promptBox = document.getElementById("prompt");
     const submit = document.getElementById("submit");
@@ -120,7 +120,7 @@
 
         const data = await res.json();
 
-        // Remove the "Thinking..." bubble
+        // Trying to remove thinking
         chatHistory.removeChild(chatHistory.lastChild);
 
         addMessage("bot", data.result || "No response from GPT.");
