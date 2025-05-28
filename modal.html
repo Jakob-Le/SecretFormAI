@@ -1,0 +1,22 @@
+<div id="auth-modal" class="modal hidden">
+  <div class="modal-content">
+    <span class="close-button">&times;</span>
+    <h2 id="modal-title">Login</h2>
+    <form id="auth-form">
+      <div id="name-field" class="input-group hidden">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" />
+      </div>
+      <div class="input-group">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required />
+      </div>
+      <div class="input-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required />
+      </div>
+      <button type="submit" id="auth-submit">Login</button>
+    </form>
+    <p id="toggle-mode">New user? <a href="#" id="switch-to-signup">Sign up</a></p>
+  </div>
+</div>
