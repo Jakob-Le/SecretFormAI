@@ -1,213 +1,191 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Chat</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GovAssist: Your Government Assistant</title>
   <link rel="stylesheet" href="styles.css" />
-  <style>
-    #chat-box {
-      max-width: 600px;
-      margin: 2rem auto;
-      padding: 1rem;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      background-color: #f9f9f9;
-    }
-    textarea {
-      width: 100%;
-      height: 80px;
-      margin-bottom: 1rem;
-    }
-    button {
-      padding: 0.5rem 1rem;
-      font-size: 1rem;
-      cursor: pointer;
-    }
-    .response {
-      margin-top: 1rem;
-      white-space: pre-wrap;
-    }
-  </style>
 </head>
-<body>
-  <!-- Banner -->
-  <header class="banner">
-    <h1>GovBot</h1>
-    <a href="#" id="profile-btn">
-      <img src="images/cat_profile.jpg" alt="Profile" class="profile-icon" />
-    </a>
-  </header>
-  <nav class="navbar">
-    <a href="index.html" class="nav-item">Home</a>
-    <a href="Forms" class="nav-item">Forms</a>
-    <a href="Preparing" class="nav-item">Preparing</a>
-    <a href="Support" class="nav-item">Support</a>
-    <a href="chat.html" class="nav-item active">Chat</a>
-  </nav>
-  <main>
-  <div id="chat-container">
-    <div id="chat-history"></div>
 
-    <div id="chat-input">
-      <textarea id="prompt" placeholder="Ask me anything..."></textarea>
-      <button id="submit">Send</button>
+<body>
+  <header class="header">
+    <div class="header-top">
+      <h1 class="logo">
+        <img src="images/logo5.png" alt="GovLogo" class="logo-img">
+      </h1>
+      <!-- Corrected button ID -->
+      <button id="profile-btn">Login</button>
+<button id="settings-btn" title="Settings">⚙️</button>
+
+    </div>
+
+    <!-- ✅ Navigation bar (was missing before) -->
+   <nav class="simple-nav">
+  <ul class="simple-nav-list">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="Forms.html">Forms</a></li>
+    <li><a href="Preparing.html">Preparing</a></li>
+    <li><a href="Support.html">Support</a></li>
+    <li><a href="chat.html" class="active">Chat</a></li>
+  </ul>
+</nav>
+
+  <main>
+    <div id="chat-box">
+      <div id="chat-history" class="chat-history">
+        <div class="chat-message bot">
+          <img src="images/mas4.png" alt="Bot" class="chat-avatar" />
+          <div class="chat-bubble">Hi! How can I help you today?</div>
+        </div>
+      </div>
+      <div id="chat-input">
+        <textarea id="prompt" placeholder="Ask me anything..."></textarea>
+        <button id="submit">Send</button>
+      </div>
+    </div>
+  </main>
+
+  <div id="modal-container"></div>
+
+  <div id="settings-modal" class="modal hidden">
+    <div class="modal-content">
+      <span class="close-button settings-close">&times;</span>
+      <h2>Settings</h2>
+      <label><input type="checkbox" id="dark-mode-toggle" /> Dark Mode</label>
+      <label for="font-size-range">Text Size</label>
+      <input type="range" id="font-size-range" min="14" max="24" value="16" />
     </div>
   </div>
-</main>
 
   <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    // Dropdown menu logic
-    const toggle = document.querySelector(".dropdown-toggle");
-    const menu = document.querySelector(".dropdown-content");
-    if (toggle && menu) {
-      toggle.addEventListener("click", function (event) {
-        event.stopPropagation();
-        menu.style.display = menu.style.display === "flex" ? "none" : "flex";
-      });
-      document.addEventListener("click", function (event) {
-        if (!event.target.closest(".dropdown")) {
-          menu.style.display = "none";
-        }
-      });
-    }
+    const settingsBtn = document.getElementById("settings-btn");
+    const settingsModal = document.getElementById("settings-modal");
+    const settingsClose = document.querySelector(".settings-close");
+    const darkToggle = document.getElementById("dark-mode-toggle");
+    const fontSlider = document.getElementById("font-size-range");
 
-    // Chat 
-    const chatHistory = document.getElementById("chat-history");
-    const promptBox = document.getElementById("prompt");
-    const submit = document.getElementById("submit");
+    settingsBtn.addEventListener("click", () => {
+      settingsModal.classList.remove("hidden");
+    });
+    settingsClose.addEventListener("click", () => {
+      settingsModal.classList.add("hidden");
+    });
+    window.addEventListener("click", (e) => {
+      if (e.target === settingsModal) {
+        settingsModal.classList.add("hidden");
+      }
+    });
+    darkToggle.addEventListener("change", () => {
+      document.body.classList.toggle("dark-mode", darkToggle.checked);
+    });
+    fontSlider.addEventListener("input", () => {
+      document.documentElement.style.fontSize = fontSlider.value + "px";
+    });
+  </script>
 
-    function addMessage(sender, text) {
-      const messageWrapper = document.createElement("div");
-      messageWrapper.className = `message ${sender}`;
+  <script>
+    fetch("modal.html")
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById("modal-container").innerHTML = html;
 
-      const avatar = document.createElement("img");
-      avatar.src = sender === "user" ? "images/user.png" : "images/bot.png";
-      avatar.alt = sender;
-      avatar.className = "avatar";
+        const profileBtn = document.getElementById("profile-btn");
+        const modal = document.getElementById("auth-modal");
+        const closeBtn = document.querySelector(".close-button");
+        const switchToSignup = document.getElementById("switch-to-signup");
+        const modalTitle = document.getElementById("modal-title");
+        const nameField = document.getElementById("name-field");
+        const authForm = document.getElementById("auth-form");
+        const authSubmit = document.getElementById("auth-submit");
+        let isSignup = false;
 
-      const bubble = document.createElement("div");
-      bubble.className = "bubble";
-      bubble.textContent = text;
-
-      messageWrapper.appendChild(avatar);
-      messageWrapper.appendChild(bubble);
-      chatHistory.appendChild(messageWrapper);
-      chatHistory.scrollTop = chatHistory.scrollHeight;
-    }
-
-    submit.addEventListener("click", async () => {
-      const prompt = promptBox.value.trim();
-      if (!prompt) return;
-
-      addMessage("user", prompt);
-      promptBox.value = "";
-
-      addMessage("bot", "Thinking...");
-
-      try {
-        const res = await fetch("https://gptwrap.onrender.com/api/gpt", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ prompt }),
+        profileBtn.addEventListener("click", (e) => {
+          e.preventDefault();
+          modal.classList.remove("hidden");
         });
 
-        const data = await res.json();
+        closeBtn.addEventListener("click", () => modal.classList.add("hidden"));
+        window.addEventListener("click", (e) => {
+          if (e.target === modal) modal.classList.add("hidden");
+        });
 
-        // Remove "thinking" (broken)"
-        chatHistory.removeChild(chatHistory.lastChild);
+        switchToSignup.addEventListener("click", (e) => {
+          e.preventDefault();
+          isSignup = !isSignup;
+          modalTitle.textContent = isSignup ? "Sign Up" : "Login";
+          authSubmit.textContent = isSignup ? "Sign Up" : "Login";
+          nameField.classList.toggle("hidden", !isSignup);
+          switchToSignup.textContent = isSignup ? "Back to Login" : "Sign up";
+        });
 
-        addMessage("bot", data.result || "No response from GPT.");
-      } catch (err) {
-        chatHistory.removeChild(chatHistory.lastChild);
-        addMessage("bot", "Error: " + err.message);
-      }
-    });
-  });
-</script>
-
-
-<div id="modal-container"></div>
-<script>
-  fetch("modal.html")
-    .then((res) => {
-      if (!res.ok) throw new Error("Failed to fetch modal.html");
-      return res.text();
-    })
-    .then((html) => {
-      console.log("✅ Modal loaded");
-      document.getElementById("modal-container").innerHTML = html;
-
-      // DEBUG: Check modal element
-      const modal = document.getElementById("auth-modal");
-      if (!modal) {
-        console.error("❌ Modal element not found after injection");
-        return;
-      }
-
-      const profileBtn = document.getElementById("profile-btn");
-      const closeBtn = document.querySelector(".close-button");
-      const switchToSignup = document.getElementById("switch-to-signup");
-      const modalTitle = document.getElementById("modal-title");
-      const nameField = document.getElementById("name-field");
-      const authForm = document.getElementById("auth-form");
-      const authSubmit = document.getElementById("auth-submit");
-      let isSignup = false;
-
-      profileBtn.addEventListener("click", function (e) {
-        e.preventDefault();
-        console.log("👤 Profile clicked, opening modal");
-        modal.classList.remove("hidden");
-      });
-
-      closeBtn.addEventListener("click", function () {
-        modal.classList.add("hidden");
-      });
-
-      window.addEventListener("click", function (e) {
-        if (e.target === modal) {
+        authForm.addEventListener("submit", function (e) {
+          e.preventDefault();
+          const name = document.getElementById("name")?.value;
+          const username = document.getElementById("username").value;
+          const password = document.getElementById("password").value;
+          alert(isSignup ? `Signed up: ${name} (${username})` : `Logged in as: ${username}`);
           modal.classList.add("hidden");
-        }
-      });
+        });
+      })
+      .catch(err => console.error("Failed to load modal.html:", err));
+  </script>
 
-      switchToSignup.addEventListener("click", function (e) {
-        e.preventDefault();
-        isSignup = !isSignup;
-        if (isSignup) {
-          modalTitle.textContent = "Sign Up";
-          authSubmit.textContent = "Sign Up";
-          nameField.classList.remove("hidden");
-          switchToSignup.textContent = "Back to Login";
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const chatHistory = document.getElementById("chat-history");
+      const promptBox = document.getElementById("prompt");
+      const submit = document.getElementById("submit");
+
+      function addMessage(sender, text) {
+        const wrapper = document.createElement("div");
+        wrapper.className = `chat-message ${sender}`;
+
+        const avatar = document.createElement("img");
+        avatar.className = "chat-avatar";
+        avatar.src = sender === "user" ? "images/prof.png" : "images/mas4.png";
+        avatar.alt = sender;
+
+        const bubble = document.createElement("div");
+        bubble.className = "chat-bubble";
+        bubble.textContent = text;
+
+        if (sender === "user") {
+          wrapper.appendChild(bubble);
+          wrapper.appendChild(avatar);
         } else {
-          modalTitle.textContent = "Login";
-          authSubmit.textContent = "Login";
-          nameField.classList.add("hidden");
-          switchToSignup.textContent = "Sign up";
-        }
-      });
-
-      authForm.addEventListener("submit", function (e) {
-        e.preventDefault();
-        const name = document.getElementById("name")?.value;
-        const username = document.getElementById("username").value;
-        const password = document.getElementById("password").value;
-
-        if (isSignup) {
-          alert(`Signed up:\nName: ${name}\nUsername: ${username}`);
-        } else {
-          alert(`Logged in as: ${username}`);
+          wrapper.appendChild(avatar);
+          wrapper.appendChild(bubble);
         }
 
-        modal.classList.add("hidden");
+        chatHistory.appendChild(wrapper);
+        chatHistory.scrollTop = chatHistory.scrollHeight;
+      }
+
+      submit.addEventListener("click", async () => {
+        const prompt = promptBox.value.trim();
+        if (!prompt) return;
+
+        addMessage("user", prompt);
+        promptBox.value = "";
+        addMessage("bot", "Thinking...");
+
+        try {
+          const res = await fetch("https://gptwrap.onrender.com/api/gpt", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ prompt }),
+          });
+
+          const data = await res.json();
+          chatHistory.removeChild(chatHistory.lastChild);
+          addMessage("bot", data.result || "No response.");
+        } catch (err) {
+          chatHistory.removeChild(chatHistory.lastChild);
+          addMessage("bot", "Error: " + err.message);
+        }
       });
-    })
-    .catch((err) => {
-      console.error("❌ Modal failed to load:", err.message);
     });
-</script>
-
-
-
+  </script>
 </body>
 </html>
