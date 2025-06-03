@@ -147,26 +147,6 @@ textarea,
 button {
   font-family: 'Poppins', sans-serif;
 }
-#settings-btn {
-  position: fixed;
-  top: 1rem;
-  left: 1rem;
-  width: 42px;
-  height: 42px;
-  background-color: var(--deep-blue);
-  color: white;
-  font-size: 1.4rem;
-  border: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  z-index: 1000;
-}
-
-#settings-btn:hover {
-  background-color: #114b66;
-}
 
 #prompt {
   font-size: 1rem;
