@@ -1,53 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GovAssist: Your Government Assistant</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
-  <!-- Banner -->
-  <header class="banner">
-    <h1>GovBot</h1>
-    <a href="#" id="profile-btn">
-      <img src="images/mascot.png" alt="Profile" class="profile-icon" />
-    </a>
+  <header class="header">
+    <div class="header-top">
+      <h1 class="logo">
+        <img src="images/logo5.png" alt="GovLogo" class="logo-img">
+      </h1>
+      <!-- Corrected button ID -->
+      <button id="profile-btn">Login</button>
+      <button id="settings-btn">Settings</button>
+
+    </div>
+
+    <!-- ✅ Navigation bar (was missing before) -->
+   <nav class="simple-nav">
+  <ul class="simple-nav-list">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="Forms.html">Forms</a></li>
+    <li><a href="Preparing.html">Preparing</a></li>
+    <li><a href="Support.html">Support</a></li>
+    <li><a href="chat.html" class="active">Chat</a></li>
+  </ul>
+</nav>
+</div>
   </header>
 
-  <!-- NavBar -->
-  <nav class="navbar">
-    <a href="index.html" class="nav-item active">Home</a>
-    <a href="form.html" class="nav-item">Forms</a>
-    <a href="preparing.html" class="nav-item">Preparing</a>
-    <a href="support.html" class="nav-item">Support</a>
-    <a href="chat.html" class="nav-item">Chat</a>
-  </nav>
-
-  <!-- Main  -->
-  <main class="main-content">
+  <main class="main-content" role="main">
     <section class="hero">
-      <h2>Your Guide to the Government</h2>
+      <h2>HELPING YOU, AND THE EARTH, <span class="breathing-text">BREATHE</span> EASIER</h2>
+      <p class="slogan">Modern Solutions for Civic Needs</p>
     </section>
 
     <section class="section">
-      <h3>What We Do</h3>
-      <p>We provide simple explanations and resources to help you navigate complex government services.</p>
+      <h3>GET STARTED</h3>
+      <p>GovBot helps you navigate complex services with ease whether you’re filling out forms, preparing documents, or just have questions</p>
+
+      <div class="quick-links big-links">
+        <a href="Forms.html" class="quick-link big-link">
+          <div class="emoji">📄</div>
+          <div class="link-content">
+            <h4>Forms</h4>
+            <p>Fill out common government forms easily with guided assistance</p>
+          </div>
+        </a>
+        <a href="Preparing.html" class="quick-link big-link">
+          <div class="emoji">🧾</div>
+          <div class="link-content">
+            <h4>Preparing</h4>
+            <p>Know what to bring, what to expect, and how to plan ahead</p>
+          </div>
+        </a>
+        <a href="Support.html" class="quick-link big-link">
+          <div class="emoji">📞</div>
+          <div class="link-content">
+            <h4>Support</h4>
+            <p>Contact us or browse FAQs for fast help</p>
+          </div>
+        </a>
+        <a href="chat.html" class="quick-link big-link">
+          <div class="emoji">🤖</div>
+          <div class="link-content">
+            <h4>Chat</h4>
+            <p>Talk with GovBot directly to ask your questions in plain English</p>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section class="section what-we-do">
+      <h3>WHAT WE DO</h3>
+      <div class="service-boxes">
+        <div class="service-box">Translate legal language into plain English</div>
+        <div class="service-box">Help you complete forms correctly</div>
+        <div class="service-box">Prepare documents for appointments</div>
+        <div class="service-box">Guide you through online or in-person services</div>
+      </div>
     </section>
 
     <section class="section">
-      <h3>Info</h3>
-      <p>Whether you need help filling out forms or understanding processes, we’re here to guide you.</p>
+      <h3>Why Use GovAssist?</h3>
+      <p>We believe everyone should have access to government services without confusion. Whether you're applying for benefits, renewing documents, or just exploring your options, GovAssist is here to help.</p>
+    </section>
+
+    <section class="section">
+      <h3>Quick Answers</h3>
+      <p>Need help now? <a href="chat.html">Chat with GovBot</a> or check our <a href="Support.html">Support page</a> for fast answers to common questions.</p>
     </section>
   </main>
 
-  <!-- Modal -->
+  <!-- Modal is loaded here -->
   <div id="modal-container"></div>
+<div id="settings-modal" class="modal hidden">
+  <div class="modal-content">
+    <span class="close-button settings-close">&times;</span>
+    <h2>Settings</h2>
+
+    <div class="input-group">
+      <label for="dark-mode-toggle">
+        <input type="checkbox" id="dark-mode-toggle" />
+        Enable Dark Mode
+      </label>
+    </div>
+
+    <div class="input-group">
+      <label for="font-size-range">Text Size</label>
+      <input type="range" id="font-size-range" min="14" max="24" value="16" />
+    </div>
+  </div>
+</div>
+<script>
+  const settingsBtn = document.getElementById("settings-btn");
+  const settingsModal = document.getElementById("settings-modal");
+  const settingsClose = document.querySelector(".settings-close");
+  const darkToggle = document.getElementById("dark-mode-toggle");
+  const fontSlider = document.getElementById("font-size-range");
+
+  settingsBtn.addEventListener("click", () => {
+    settingsModal.classList.remove("hidden");
+  });
+
+  settingsClose.addEventListener("click", () => {
+    settingsModal.classList.add("hidden");
+  });
+
+  window.addEventListener("click", (e) => {
+    if (e.target === settingsModal) {
+      settingsModal.classList.add("hidden");
+    }
+  });
+
+  darkToggle.addEventListener("change", () => {
+    document.body.classList.toggle("dark-mode", darkToggle.checked);
+  });
+
+  fontSlider.addEventListener("input", () => {
+    document.documentElement.style.fontSize = fontSlider.value + "px";
+  });
+</script>
+
+  <!-- Modal script -->
   <script>
     fetch("modal.html")
-      .then((res) => res.text())
-      .then((html) => {
+      .then(res => res.text())
+      .then(html => {
         document.getElementById("modal-container").innerHTML = html;
+
         const profileBtn = document.getElementById("profile-btn");
         const modal = document.getElementById("auth-modal");
         const closeBtn = document.querySelector(".close-button");
@@ -58,17 +163,20 @@
         const authSubmit = document.getElementById("auth-submit");
         let isSignup = false;
 
-        profileBtn.addEventListener("click", function (e) {
+        profileBtn.addEventListener("click", (e) => {
           e.preventDefault();
           modal.classList.remove("hidden");
         });
 
         closeBtn.addEventListener("click", () => modal.classList.add("hidden"));
+
         window.addEventListener("click", (e) => {
-          if (e.target === modal) modal.classList.add("hidden");
+          if (e.target === modal) {
+            modal.classList.add("hidden");
+          }
         });
 
-        switchToSignup.addEventListener("click", function (e) {
+        switchToSignup.addEventListener("click", (e) => {
           e.preventDefault();
           isSignup = !isSignup;
           modalTitle.textContent = isSignup ? "Sign Up" : "Login";
@@ -85,7 +193,26 @@
           alert(isSignup ? `Signed up: ${name} (${username})` : `Logged in as: ${username}`);
           modal.classList.add("hidden");
         });
+      })
+      .catch(err => {
+        console.error("Failed to load modal.html:", err);
       });
   </script>
+
+  <!-- GovBot mascot -->
+  <a href="chat.html" id="mascot" aria-label="Chat with GovBot">
+    <img src="images/mas7.png" alt="GovBot Mascot">
+    <div class="speech-bubble">Hi there! Need help?</div>
+  </a>
+
+  <!-- Footer -->
+  <footer>
+    <a>&copy; 2025 GovAssist. All rights reserved.</a>
+    <p><a href="Support.html">Contact Support</a></p>
+  </footer>
 </body>
 </html>
+
+
+
+
