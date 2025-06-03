@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GovAssist: Your Government Assistant</title>
+  <link rel="stylesheet" href="newstyles.css" />
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-top">
+        <h1 class="logo">
+            <img src="images/logo5.png" alt="GovLogo" class="logo-img">
+        </h1>
+        <!-- Corrected button ID -->
+        <button id="profile-btn">Login</button>
+        <button id="settings-btn">Settings</button>
+
+        </div>
+
+        <!-- ✅ Navigation bar (was missing before) -->
+        <nav class="simple-nav">
+        <ul class="simple-nav-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="Forms.html">Forms</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="Support.html">Support</a></li>
+            <li><a href="chat.html" class="active">Chat</a></li>
+        </ul>
+        </nav>
+    </header>
+
+    <main class = "application-main">
+        <p class = disclaimer>If you are under the age of 16 or your
+            passport is older than 15 years, you must apply for a new passport.</p>
+        <div class = "application">
+            <h3>Passport Renewal</h3>
+            <div class = "box-row">
+                <div class = "info-box">
+                    <strong>Online</strong>
+                    <p>Complete <a href = "https://travel.state.gov/content/travel/en/passports/have-passport/renew-online.html"class = "text-link">application</a></p>
+                    <strong>Required:</strong>
+                    <p>Most recent passport</p>
+                    <p>Travel plans</p>
+                    <p>Digital photo</p>
+                </div>
+                <div class = "info-box">
+                    <strong>By Mail</strong>
+                    <p>Complete form DS-82</p>
+                    <p>Mail the completed DS-82, <a href = "https://travel.state.gov/content/travel/en/passports/how-apply/photos.html" class = "text-link">passport photo</a>, 
+                        payment, and most recent passport.
+                        The address to send to is on the application form.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class = "application">
+            <h3>New Passport</h3>
+            <div class = "box-row">
+                <div class = "info-box">
+                    <p>Complete form DS-11 which is provided at the post office</p>
+                    <strong>Required Documents:</strong>
+                    <p><a href = "https://travel.state.gov/content/travel/en/passports/how-apply/photos.html" class = "text-link">Passport photo</a></p>
+                    <p>Original state ID and photocopy</p>
+                    <p>original copy of proof of citizenship and photocopy</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    </body>
+</html>
