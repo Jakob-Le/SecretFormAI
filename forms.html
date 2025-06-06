@@ -106,8 +106,48 @@
       <input type="range" id="font-size-range" min="14" max="24" value="16" />
     </div>
   </div>
+  <script>
+    const settingsBtn = document.getElementById("settings-btn");
+    const settingsModal = document.getElementById("settings-modal");
+    const settingsClose = document.querySelector(".settings-close");
+    const darkToggle = document.getElementById("dark-mode-toggle");
+    const fontSlider = document.getElementById("font-size-range");
 
-  <script src="scripts.js"></script> <!-- Or inline your settings/login logic if not external -->
+    settingsBtn.addEventListener("click", () => {
+      settingsModal.classList.remove("hidden");
+    });
+    settingsClose.addEventListener("click", () => {
+      settingsModal.classList.add("hidden");
+    });
+    window.addEventListener("click", (e) => {
+      if (e.target === settingsModal) {
+        settingsModal.classList.add("hidden");
+      }
+    });
+    darkToggle.addEventListener("change", () => {
+      document.body.classList.toggle("dark-mode", darkToggle.checked);
+    });
+    fontSlider.addEventListener("input", () => {
+      document.documentElement.style.fontSize = fontSlider.value + "px";
+    });
+  </script>
+
+  <script>
+    fetch("modal.html")
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById("modal-container").innerHTML = html;
+        setupAuthForm();
+    })
+    .catch(err => {
+      console.error("Failed to load modal.html:", err);
+    });
+
+  </script>
+  
+  <script src="auth.js"></script>
+
+
 </body>
 </html>
 

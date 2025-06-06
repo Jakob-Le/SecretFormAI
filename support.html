@@ -94,19 +94,11 @@
       .then(res => res.text())
       .then(html => {
         document.getElementById("modal-container").innerHTML = html;
-        const modal = document.getElementById("auth-modal");
-        const profileBtn = document.getElementById("profile-btn");
-
-        profileBtn.addEventListener("click", (e) => {
-          e.preventDefault();
-          modal.classList.remove("hidden");
-        });
-
-        document.querySelector(".close-button").addEventListener("click", () => modal.classList.add("hidden"));
-        window.addEventListener("click", (e) => {
-          if (e.target === modal) modal.classList.add("hidden");
-        });
-      });
+        setupAuthForm();
+    })
+    .catch(err => {
+      console.error("Failed to load modal.html:", err);
+    });
 
     // Support form logic
     function handleSupport(e) {
@@ -152,5 +144,6 @@
       document.documentElement.style.fontSize = fontSlider.value + "px";
     });
   </script>
+  <script src="auth.js"></script>
 </body>
 </html>

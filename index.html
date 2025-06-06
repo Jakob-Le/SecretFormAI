@@ -20,7 +20,7 @@
 
     </div>
 
-    <!-- ✅ Navigation bar (was missing before) -->
+    <!-- Navigation bar (was missing before) -->
    <nav class="simple-nav">
   <ul class="simple-nav-list">
     <li><a href="index.html">Home</a></li>
@@ -147,56 +147,17 @@
 </script>
 
   <!-- Modal script -->
-  <script>
+    <script>
     fetch("modal.html")
       .then(res => res.text())
       .then(html => {
         document.getElementById("modal-container").innerHTML = html;
+        setupAuthForm();
+    })
+    .catch(err => {
+      console.error("Failed to load modal.html:", err);
+    });
 
-        const profileBtn = document.getElementById("profile-btn");
-        const modal = document.getElementById("auth-modal");
-        const closeBtn = document.querySelector(".close-button");
-        const switchToSignup = document.getElementById("switch-to-signup");
-        const modalTitle = document.getElementById("modal-title");
-        const nameField = document.getElementById("name-field");
-        const authForm = document.getElementById("auth-form");
-        const authSubmit = document.getElementById("auth-submit");
-        let isSignup = false;
-
-        profileBtn.addEventListener("click", (e) => {
-          e.preventDefault();
-          modal.classList.remove("hidden");
-        });
-
-        closeBtn.addEventListener("click", () => modal.classList.add("hidden"));
-
-        window.addEventListener("click", (e) => {
-          if (e.target === modal) {
-            modal.classList.add("hidden");
-          }
-        });
-
-        switchToSignup.addEventListener("click", (e) => {
-          e.preventDefault();
-          isSignup = !isSignup;
-          modalTitle.textContent = isSignup ? "Sign Up" : "Login";
-          authSubmit.textContent = isSignup ? "Sign Up" : "Login";
-          nameField.classList.toggle("hidden", !isSignup);
-          switchToSignup.textContent = isSignup ? "Back to Login" : "Sign up";
-        });
-
-        authForm.addEventListener("submit", function (e) {
-          e.preventDefault();
-          const name = document.getElementById("name")?.value;
-          const username = document.getElementById("username").value;
-          const password = document.getElementById("password").value;
-          alert(isSignup ? `Signed up: ${name} (${username})` : `Logged in as: ${username}`);
-          modal.classList.add("hidden");
-        });
-      })
-      .catch(err => {
-        console.error("Failed to load modal.html:", err);
-      });
   </script>
 
   <!-- GovBot mascot -->
@@ -210,6 +171,9 @@
     <a>&copy; 2025 GovAssist. All rights reserved.</a>
     <p><a href="Support.html">Contact Support</a></p>
   </footer>
+  <!-- for login -->
+  <script src="auth.js"></script>
+
 </body>
 </html>
 
