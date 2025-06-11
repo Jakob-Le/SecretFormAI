@@ -122,21 +122,21 @@
   font-family: 'Poppins', sans-serif;
 }
 .forms-page .section h2 {
-  margin-bottom: 0.5rem; /* Reduce space below heading */
+  margin-bottom: 0.5rem; 
 }
 
 .forms-page .section .intro {
-  margin-top: 0.5rem; /* Eliminate default top margin */
+  margin-top: 0.5rem; 
 }
 .forms-page .section {
-  padding-top: 2rem; /* Less top padding */
+  padding-top: 2rem; 
 }
 
 .forms-page .section h2 {
-  margin-top: 1rem;      /* Remove any default margin */
+  margin-top: 1rem;    
 }
 
-/* === Resource Page Styling Fixed === */
+
 .rsrc-grid {
   display: flex;
   flex-wrap: wrap;
@@ -252,13 +252,13 @@
 .input-group {
   margin-top: 1rem;
 }
-/* Reduce main content width only on the support page */
+
 .support-page .container {
   max-width: 900px;
   margin: 0 auto;
   padding: 2rem;
 }
-/* Styled Send Button */
+
 #support-form button[type="submit"] {
   background-color: var(--mint-green);
   color: var(--deep-blue);
@@ -331,7 +331,7 @@
   position: absolute;
   left: 0;
 }
-/* Reduce width of the main section in forms.html */
+
 .forms-page main.container .section {
   max-width: 1040px;
   margin: 0 auto;
@@ -425,7 +425,7 @@ nav.navbar {
   background-color: white;
   border-radius: 10px;
   border: 1px solid #ccc;
-  max-height: calc(100vh - 300px); /* adjust based on your header/nav height */
+  max-height: calc(100vh - 300px); 
   min-height: 300px;
   height: 100%;
 }
@@ -524,7 +524,6 @@ button {
   background-color: #114b66;
 }
 
-/* === Chat Theme Styles === */
 #chat-box {
   max-width: 1000px;
   margin: 2rem auto;
@@ -549,7 +548,6 @@ button {
   gap: 0.2rem;
   max-width: 90%;
 }
-
 
 
 .chat-message.bot {
@@ -629,14 +627,14 @@ body.dark-mode #submit {
   border-color: #81c784;
 }
 
-/* === MODAL OVERLAY === */
+
 .modal {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5); /* translucent black overlay */
+  background-color: rgba(0, 0, 0, 0.5); 
   display: flex;
   align-items: center;
   justify-content: center;
@@ -647,7 +645,6 @@ body.dark-mode #submit {
   display: none;
 }
 
-/* === MODAL BOX === */
 .modal-content {
   background-color: var(--white);
   padding: 2rem 2rem;
@@ -660,7 +657,7 @@ body.dark-mode #submit {
   color: var(--deep-blue);
 }
 
-/* === CLOSE BUTTON (X) === */
+
 .close-button {
   position: absolute;
   top: 0.7rem;
@@ -672,14 +669,13 @@ body.dark-mode #submit {
   border: none;
   cursor: pointer;
 }
-/* === DARK MODE IMPROVED === */
 body.dark-mode {
   background-color: #121212;
   color: #f5f5f5;
 }
 
 body.dark-mode a {
-  color: #a5d6a7; /* soft mint green */
+  color: #a5d6a7; 
 }
 
 body.dark-mode a:hover,
@@ -688,7 +684,7 @@ body.dark-mode a:focus {
   text-decoration: underline;
 }
 
-/* Adjust section and modal backgrounds */
+
 body.dark-mode .section,
 body.dark-mode .hero,
 body.dark-mode .modal-content {
@@ -697,7 +693,7 @@ body.dark-mode .modal-content {
   border-color: #333;
 }
 
-/* Quick links and buttons */
+
 body.dark-mode .quick-link,
 body.dark-mode .quick-link.big-link,
 body.dark-mode .service-box {
@@ -713,7 +709,6 @@ body.dark-mode .service-box:hover {
   color: #ffffff;
 }
 
-/* Navbar */
 body.dark-mode .simple-nav {
   background-color: #181818;
 }
@@ -730,7 +725,7 @@ body.dark-mode .simple-nav-list a.active {
   color: #ffffff;
 }
 
-/* Modal form input and buttons */
+
 body.dark-mode input,
 body.dark-mode select,
 body.dark-mode textarea {
@@ -746,7 +741,7 @@ body.dark-mode textarea:focus {
   outline: none;
 }
 
-/* Buttons: Login, Settings, Submit */
+
 body.dark-mode button,
 body.dark-mode #auth-submit {
   background-color: #2e7d32;
@@ -761,13 +756,12 @@ body.dark-mode #auth-submit:hover {
   color: white;
 }
 
-/* Speech bubble */
 body.dark-mode .speech-bubble {
   background-color: var(--light-green);
   color: #ffffff;
 }
 
-/* Footer */
+
 body.dark-mode footer {
   background-color: #111;
   color: #cccccc;
@@ -782,7 +776,6 @@ body.dark-mode footer a:hover {
   text-decoration: underline;
 }
 
-/* === INPUT GROUPS === */
 .input-group {
   margin-bottom: 1.5rem;
   display: flex;
@@ -808,7 +801,7 @@ body.dark-mode footer a:hover {
   border-color: var(--deep-blue);
 }
 
-/* === AUTH SUBMIT BUTTON === */
+
 #auth-submit {
   background-color: var(--deep-blue);
   color: var(--white);
@@ -829,7 +822,7 @@ body.dark-mode footer a:hover {
   transform: translateY(-1px);
 }
 
-/* === TOGGLE SIGNUP LINK === */
+
 #toggle-mode {
   margin-top: 1rem;
   text-align: center;
@@ -843,7 +836,7 @@ body.dark-mode footer a:hover {
   cursor: pointer;
 }
 
-/* === MATCH OLD LOGIN BUTTON STYLE === */
+
 #profile-btn {
   position: absolute;
   top: 20%;
@@ -1002,7 +995,7 @@ p {
 
 }
 .simple-nav {
-  background-color: #2c3e50; /* Same as footer */
+  background-color: #2c3e50;
   text-align: center;
   padding: 2rem 0;
 }
@@ -1121,7 +1114,7 @@ body.dark-mode button {
   cursor: pointer;
   transition: background-color 0.3s ease, color 0.3s ease;
   user-select: none;
-    letter-spacing: 1.5px;           /* Slightly more spaced letters */
+    letter-spacing: 1.5px;          
 
   z-index: 1000;
     text-transform: uppercase;
@@ -1159,8 +1152,8 @@ body.dark-mode button {
 }
 .breathing-text {
   animation: breathe 3s ease-in-out infinite;
-  display: inline-block; /* Needed for transform */
-   margin-top: 0;        /* Remove space above */
+  display: inline-block; 
+   margin-top: 0;        
   padding-top: 0;
 }
 
@@ -1170,16 +1163,16 @@ body.dark-mode button {
     opacity: 1;
   }
   50% {
-    transform: scale(1);  /* Slightly larger */
+    transform: scale(1);  
     opacity: 1;
   }
 }
 
 
 .hero {
-    width: 100%;                       /* Make it full width */
-  max-width: none;                   /* Remove any max-width */
-  margin: 1rem 0;                    /* Add vertical margin only */
+    width: 100%;                      
+  max-width: none;                  
+  margin: 1rem 0;                    
   background-color: var(--white);
   color: var(--deep-blue);
   padding: 1.5rem 2rem;
@@ -1201,7 +1194,7 @@ body.dark-mode button {
   flex-wrap: wrap;
   gap: 1rem;
   justify-content: center;
-  align-items: stretch; /* make all children same height */
+  align-items: stretch; 
 }
 
 .quick-link.big-link {
@@ -1209,7 +1202,7 @@ body.dark-mode button {
   color: var(--deep-blue);
   flex: 1 1 260px;
   max-width: 300px;
-  min-height: 300px; /* you can adjust this */
+  min-height: 300px; 
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1248,7 +1241,6 @@ body.dark-mode button {
 }
 
 
-/* When hovering the link, adjust both background and text color explicitly */
 .rsrc-link:hover .rsrc-box,
 .rsrc-link:focus .rsrc-box {
   background-color: var(--deep-blue);
@@ -1257,7 +1249,7 @@ body.dark-mode button {
 
 .rsrc-link:hover .rsrc-box h2,
 .rsrc-link:hover .rsrc-box li {
-  color: var(--white); /* Make sure list items and headings are visible */
+  color: var(--white);
 }
 .rsrc-box h2,
 .rsrc-box li {
@@ -1270,9 +1262,9 @@ body.dark-mode button {
   padding: 1.8rem 2rem;
   margin-bottom: 2rem;
   color: #2c3e50;
-      width: 100%;                       /* Make it full width */
-  max-width: none;                   /* Remove any max-width */
-  margin: 1rem 0;                    /* Add vertical margin only */
+      width: 100%;                       
+  max-width: none;               
+  margin: 1rem 0;                    
   background-color: var(--white);
   color: var(--deep-blue);
   padding: 1.5rem 2rem;
@@ -1417,7 +1409,7 @@ font-size: 3rem;
 }
 
 .speech-bubble {
- position: relative;         /* enables top/left offsets */
+ position: relative;         
   left: -20px;           
   right: 50px;
   background-color: var(--deep-blue);
@@ -1451,19 +1443,19 @@ footer a:focus {
 }
 .service-boxes {
   display: flex;
-  flex-direction: column; /* Stack vertically */
+  flex-direction: column; 
   gap: 1rem;
   margin-top: 1rem;
   align-items: center;
 }
-/* Specific margin tweaks for correct layout */
+
 .chat-message.user .chat-avatar {
   margin-left: 0.5rem;
   margin-right: 0;
 }
 .chat-message.user {
   justify-content: flex-end;
-  align-self: flex-end;   /* <== THIS LINE IS KEY */
+  align-self: flex-end;   
 }
 
 .chat-message.bot .chat-avatar {
@@ -1477,7 +1469,7 @@ footer a:focus {
   border-radius: 12px;
   padding: 1.2rem 1.5rem;
   width: 100%;
-  max-width: 1200px;  /* Optional width limit */
+  max-width: 1200px;  
   text-align: center;
   transition: transform 0.2s ease;
     font-weight: bold;
@@ -1490,9 +1482,379 @@ footer a:focus {
 }
 .service-box::before {
   content: '✔';
-  color: var(--deep-blue);  /* or any color you prefer */
+  color: var(--deep-blue); 
   font-weight: bold;
   margin-right: 0.6rem;
+  
+}
+
+body.dark-mode {
+  background-color: #121212; 
+  color: #ffffff;
+}
+
+body.dark-mode .header,
+body.dark-mode .simple-nav,
+body.dark-mode footer {
+  background-color: #1c1c1c;
+  color: #ffffff;
+}
+
+body.dark-mode .simple-nav-list a,
+body.dark-mode .nav-item {
+  color: #ffff66; 
+}
+
+body.dark-mode .simple-nav-list a:hover,
+body.dark-mode .nav-item:hover {
+  color: #00ffcc; 
+}
+
+
+body.dark-mode .section,
+body.dark-mode .intro p,
+body.dark-mode .main-content,
+body.dark-mode .slogan,
+body.dark-mode .modal-content {
+  background-color: #1a1a1a;
+  color: #ffffff;
+  border: 1px solid #444;
+}
+
+
+body.dark-mode input,
+body.dark-mode textarea,
+body.dark-mode button {
+  background-color: #000000;
+  color: #ffffff;
+  border: 2px solid #00ffcc;
+}
+
+body.dark-mode {
+  background-color: #121212;
+  color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+}
+
+body.dark-mode p,
+body.dark-mode li,
+body.dark-mode label,
+body.dark-mode .intro,
+body.dark-mode .intro p,
+body.dark-mode .section,
+body.dark-mode .main-content {
+  color: #ffffff;
+  background-color: #1a1a1a;
+}
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3 {
+  color: #ffff66;
+}
+
+body.dark-mode .header,
+body.dark-mode .simple-nav,
+body.dark-mode footer {
+  background-color: #1c1c1c;
+  color: #ffffff;
+  border-bottom: 1px solid #444;
+}
+
+body.dark-mode .simple-nav-list a,
+body.dark-mode .nav-item {
+  color: #00ffcc;
+}
+
+body.dark-mode .simple-nav-list a:hover,
+body.dark-mode .nav-item:hover {
+  color: #ffff66;
+  text-decoration: underline;
+}
+
+body.dark-mode .rsrc-grid {
+  background-color: transparent;
+}
+
+body.dark-mode .rsrc-box {
+  background-color: #1e1e1e;
+  border: 2px solid #00ffcc;
+  color: #ffffff;
+}
+
+body.dark-mode .rsrc-box h2 {
+  color: #ffff66;
+}
+
+body.dark-mode .rsrc-box li {
+  color: #ffffff;
+}
+
+body.dark-mode .rsrc-box li::before {
+  color: #00ffcc;
+}
+
+body.dark-mode input,
+body.dark-mode textarea,
+body.dark-mode select {
+  background-color: #000000;
+  color: #ffffff;
+  border: 2px solid #00ffcc;
+  padding: 0.5rem;
+}
+
+body.dark-mode input:focus,
+body.dark-mode textarea:focus,
+body.dark-mode select:focus {
+  outline: 3px solid #ffff66;
+}
+
+body.dark-mode button {
+  background-color: #00ffcc;
+  border: none;
+  padding: 0.75rem 1.25rem;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+body.dark-mode button:hover {
+  background-color: #ffff66;
+body.dark-mode {
+  background-color: #121212;
+  color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+}
+
+body.dark-mode p,
+body.dark-mode li,
+body.dark-mode label,
+body.dark-mode .intro,
+body.dark-mode .intro p,
+body.dark-mode .section,
+body.dark-mode .main-content {
+  color: #ffffff;
+  background-color: #1a1a1a;
+}
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3 {
+  color: #ffff66;
+}
+
+body.dark-mode .header,
+body.dark-mode .simple-nav,
+body.dark-mode footer {
+  background-color: #1c1c1c;
+  color: #ffffff;
+  border-bottom: 1px solid #444;
+}
+
+body.dark-mode .simple-nav-list a,
+body.dark-mode .nav-item {
+  color: #00ffcc;
+}
+
+body.dark-mode .simple-nav-list a:hover,
+body.dark-mode .nav-item:hover {
+  color: #ffff66;
+  text-decoration: underline;
+}
+
+body.dark-mode .rsrc-grid {
+  background-color: transparent;
+}
+
+body.dark-mode .rsrc-box {
+  background-color: #1e1e1e;
+  border: 2px solid #00ffcc;
+  color: #ffffff;
+}
+
+body.dark-mode .rsrc-box h2 {
+  color: #ffff66;
+}
+
+body.dark-mode .rsrc-box li {
+  color: #ffffff;
+}
+
+body.dark-mode .rsrc-box li::before {
+  color: #00ffcc;
+}
+
+body.dark-mode input,
+body.dark-mode textarea,
+body.dark-mode select {
+  background-color: #000000;
+  color: #ffffff;
+  border: 2px solid #00ffcc;
+  padding: 0.5rem;
+}
+
+body.dark-mode input:focus,
+body.dark-mode textarea:focus,
+body.dark-mode select:focus {
+  outline: 3px solid #ffff66;
+}
+
+body.dark-mode button {
+  background-color: #00ffcc;
+  color: #ffff66;
+  border: none;
+  padding: 0.75rem 1.25rem;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+body.dark-mode button:hover {
+  background-color: #ffff66;
+  color: #ffff66;
+}
+
+body.dark-mode .modal-content {
+  background-color: #1a1a1a;
+  color: #ffffff;
+  border: 2px solid #00ffcc;
+}
+
+body.dark-mode .close-button {
+  color: #ffffff;
+}
+
+body.dark-mode .close-button:hover {
+  color: #ffff66;
+}
+
+body.dark-mode input[type="checkbox"],
+body.dark-mode input[type="range"] {
+  accent-color: #00ffcc;
+    color: #ffff66;
+
+  
+}
+
+body.dark-mode #mascot .speech-bubble {
+  background-color: #1c1c1c;
+  color: #00ffcc;
+  border: 1px solid #00ffcc;
+}
+
+body.dark-mode footer {
+  background-color: #1c1c1c;
+  border-top: 1px solid #444;
+  color: #ffffff;
+}
+
+body.dark-mode footer a {
+  color: #00ffcc;
+}
+
+body.dark-mode footer a:hover {
+  color: #ffff66;
+}
+}
+
+body.dark-mode .modal-content {
+  background-color: #1a1a1a;
+  color: #ffffff;
+  border: 2px solid #00ffcc;
+}
+
+body.dark-mode .close-button {
+  color: #ffffff;
+}
+
+body.dark-mode .close-button:hover {
+  color: #ffff66;
+}
+
+body.dark-mode input[type="checkbox"],
+body.dark-mode input[type="range"] {
+  accent-color: #00ffcc;
+}
+
+body.dark-mode #mascot .speech-bubble {
+  background-color: #1c1c1c;
+  color: #00ffcc;
+  border: 1px solid #00ffcc;
+}
+
+body.dark-mode footer {
+  background-color: #1c1c1c;
+  border-top: 1px solid #444;
+  color: #ffffff;
+}
+
+body.dark-mode footer a {
+  color: #00ffcc;
+}
+
+body.dark-mode footer a:hover {
+  color: #ffff66;
+}
+
+body.dark-mode input:focus,
+body.dark-mode textarea:focus,
+body.dark-mode button:focus {
+    background-color: black;
+
+  outline: 3px solid #ffff66;
+  color: white;
+}
+
+body.dark-mode .rsrc-box {
+  background-color: #1e1e1e;
+  border: 2px solid #00ffcc;
+  color: #ffffff;
+}
+
+body.dark-mode .rsrc-box h2 {
+  background-color: black;
+  color: #ffff66;
+}
+
+body.dark-mode .rsrc-box li {
+    background-color: black;
+
+  color: #ffffff;
+}
+
+body.dark-mode .rsrc-box li::before {
+    background-color: black;
+
+  color: #00ffcc;
+}
+
+body.dark-mode #mascot .speech-bubble {
+  background-color: #222222;
+  color: #00ffcc;
+  border: 1px solid #00ffcc;
+}
+
+body.dark-mode a {
+  
+  color: #00ffcc;
+}
+
+body.dark-mode a:hover {
+  color: #ffff66;
+}
+
+body.dark-mode h1, 
+body.dark-mode h2, 
+body.dark-mode h3, 
+body.dark-mode label {
+    background-color: black;
+
+  color: #ffff66;
+}
+body.dark-mode .intro p,
+body.dark-mode .section p,
+body.dark-mode .container p {
+    background-color: black;
+
+  color: #ffffff !important;
 }
 
 
