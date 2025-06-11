@@ -20,7 +20,6 @@
 
     </div>
 
-    <!-- Navigation bar (was missing before) -->
    <nav class="simple-nav">
   <ul class="simple-nav-list">
     <li><a href="index.html">Home</a></li>
@@ -148,10 +147,8 @@ This hub connects you to official government websites for DMV, passports, taxes,
 </html>
 
 
-  <!-- Login Modal -->
   <div id="modal-container"></div>
 
-  <!-- Settings Modal -->
   <div id="settings-modal" class="modal hidden">
     <div class="modal-content">
       <span class="close-button settings-close">&times;</span>
@@ -171,21 +168,17 @@ This hub connects you to official government websites for DMV, passports, taxes,
     </div>
   </div>
 
-  <!-- Mascot -->
   <a href="chat.html" id="mascot" aria-label="Chat with GovBot">
     <img src="images/mas7.png" alt="GovBot Mascot" />
     <div class="speech-bubble">Hi there! Need help?</div>
   </a>
 
-  <!-- Footer -->
   <footer>
     <a>&copy; 2025 GovAssist. All rights reserved.</a>
     <p><a href="support.html">Contact Support</a></p>
   </footer>
 
-  <!-- JS: Modal and Settings Logic -->
   <script>
-    // Load login modal
     fetch("modal.html")
       .then(res => res.text())
       .then(html => {
@@ -204,7 +197,6 @@ This hub connects you to official government websites for DMV, passports, taxes,
         });
       });
 
-    // Support form logic
     function handleSupport(e) {
       e.preventDefault();
       const name = document.getElementById("support-name").value;
@@ -219,7 +211,6 @@ This hub connects you to official government websites for DMV, passports, taxes,
       document.getElementById("support-form").reset();
     }
 
-    // Settings modal logic
     const settingsBtn = document.getElementById("settings-btn");
     const settingsModal = document.getElementById("settings-modal");
     const settingsClose = document.querySelector(".settings-close");
